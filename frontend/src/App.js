@@ -1,10 +1,10 @@
 import React from "react";
-import AnalyzeForm from "./components/AnalyzeForm";
+import AnalyzeForm2 from "./components/AnalyzeForm2";
 
 function App() {
   return (
     <div className="App">
-      <AnalyzeForm />
+      <AnalyzeForm2 />
     </div>
   );
 }
