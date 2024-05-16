@@ -19,7 +19,10 @@ const AnalyzeForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/analyze", { review });
+      const response = await axios.post(
+        "https://backend-sentiment-analyzer.fly.dev/",
+        { review }
+      );
       setResult(response.data.sentiment);
     } catch (error) {
       console.error(
@@ -43,11 +46,15 @@ const AnalyzeForm = () => {
     const formData = new FormData();
     formData.append("file", fileData);
     try {
-      const response = await axios.post("/analyze-file", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      const response = await axios.post(
+        "https://backend-sentiment-analyzer.fly.dev/",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       const positiveCount = response.data.filter(
         (res) => res.sentiment === "positive"
       ).length;
