@@ -20,7 +20,7 @@ const AnalyzeForm = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://backend-sentiment-analyzer.fly.dev/",
+        "https://backend-sentiment-analyzer.fly.dev/analyze",
         { review }
       );
       setResult(response.data.sentiment);
@@ -47,7 +47,7 @@ const AnalyzeForm = () => {
     formData.append("file", fileData);
     try {
       const response = await axios.post(
-        "https://backend-sentiment-analyzer.fly.dev/",
+        "https://backend-sentiment-analyzer.fly.dev/analyze-file",
         formData,
         {
           headers: {
